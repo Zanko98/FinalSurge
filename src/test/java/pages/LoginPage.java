@@ -1,6 +1,5 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -13,11 +12,13 @@ public class LoginPage extends BasePage {
     //#login_remember -- checkbox
 
     public void login() {
-        open();
+        open("https://log.finalsurge.com/");
         $("#login_name").sendKeys(EMAIL);
         $("#login_password").sendKeys(PASSWORD);
         $(LOGIN_BUTTON).click();
-        $(By.xpath("//h4[text() = 'Security Settings']")).shouldBe(Condition.visible);//взять из
+    }
+    public void logout() {//перенести потом в нужный кдасс из LoginPage
+        $(By.linkText("Logout")).click();
     }
 
     public void signUpButtonClick() {
