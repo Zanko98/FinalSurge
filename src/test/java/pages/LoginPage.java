@@ -9,16 +9,20 @@ public class LoginPage extends BasePage {
     public final By LOGIN_BUTTON = By.xpath("//button[text() = 'Login']"),
             SIGN_UP_BUTTON = By.partialLinkText(" Sign up"),
             PASSWORD_RECOVERY_BUTTON = By.partialLinkText("Forgot?");
-    //#login_remember -- checkbox
 
-    public void login() {
+    public void login(String email, String password) {
         open("https://log.finalsurge.com/");
-        $("#login_name").sendKeys(EMAIL);
-        $("#login_password").sendKeys(PASSWORD);
+        $("#login_name").sendKeys(email);
+        $("#login_password").sendKeys(password);
         $(LOGIN_BUTTON).click();
     }
-    public void logout() {//перенести потом в нужный кдасс из LoginPage
-        $(By.linkText("Logout")).click();
+
+    public String getErrorMessage () {
+       return $(By.xpath("//label[@class = 'error']")).getText();
+    }
+
+    public String getErrorMessageInvalidUser () {
+        return $(By.xpath("//div[@class='alert alert-error']/strong")).getText();
     }
 
     public void signUpButtonClick() {

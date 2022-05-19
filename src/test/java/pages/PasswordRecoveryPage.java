@@ -8,8 +8,8 @@ public class PasswordRecoveryPage extends BasePage{
     public final By REQUEST_NEW_PASSWORD_BUTTON = By.partialLinkText("Request"),
             RESET_PASSWORD_BUTTON = By.xpath("//button[text() = 'Reset Password']");
 
-    public void requestNewPassword(){
-        $("#FEmail").sendKeys(EMAIL);
+    public void requestNewPassword(String email){
+        $("#FEmail").sendKeys(email);
         $(REQUEST_NEW_PASSWORD_BUTTON).click();
         //Password Reset: An email has been sent to you with further instructions on resetting your password.
     }
