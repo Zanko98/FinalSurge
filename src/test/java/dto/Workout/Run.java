@@ -10,13 +10,17 @@ import lombok.Data;
 public class Run {
     String data, timeOfDay,
             name,
-    description,
+            description,
             showDistance, plannedDistance, planedDistType, planedDuration,
             distance, distType, duration,
-            reps, advDistance, advDistType, AdvDuration, paceType,
+            reps, advDistance, advDistType, advDuration, paceType,
             markAsRace, overallPlace, ageGroupPlace,
             feel,
             effort,
             minHR, avgHR, maxHR,
             kCal;
+
+    String elGain, elGainType, elLoss, elLossType;
+
+    String powAvg, powMax, cadAvg, cadMax;
 }

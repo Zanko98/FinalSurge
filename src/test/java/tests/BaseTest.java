@@ -7,6 +7,8 @@ import pages.*;
 public class BaseTest {
     public final String EMAIL = "qa@mailinator.com",
             PASSWORD = "!QAZ1qaz";
+    String test100 = "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789",
+            test1000 = test100+test100+test100+test100+test100+test100+test100+test100+test100+test100;
     LoginPage loginPage;
     NewAccountPage newAccountPage;
     PasswordRecoveryPage passwordRecoveryPage;
