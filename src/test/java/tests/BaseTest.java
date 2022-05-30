@@ -14,6 +14,7 @@ public class BaseTest {
     PasswordRecoveryPage passwordRecoveryPage;
     UserProfilePage userProfilePage;
     TitlePage titlePage;
+    WorkoutBasePage workoutBasePagePage;
     AddWorkoutPage addWorkoutPage;
 
     @BeforeMethod
@@ -28,6 +29,7 @@ public class BaseTest {
         passwordRecoveryPage = new PasswordRecoveryPage();
         userProfilePage = new UserProfilePage();
         titlePage = new TitlePage();
+        workoutBasePagePage = new WorkoutBasePage();
         addWorkoutPage = new AddWorkoutPage();
     }
 }

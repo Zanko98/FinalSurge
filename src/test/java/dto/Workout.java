@@ -1,4 +1,4 @@
-package dto.Workout;
+package dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class Run {
+public class Workout {
     String data, timeOfDay,
             name,
             description,
@@ -18,9 +18,10 @@ public class Run {
             feel,
             effort,
             minHR, avgHR, maxHR,
-            kCal;
+            kCal,
+            elGain, elGainType, elLoss, elLossType,
+            powAvg, powMax, cadAvg, cadMax;
 
-    String elGain, elGainType, elLoss, elLossType;
-
-    String powAvg, powMax, cadAvg, cadMax;
+    public Workout() {
+    }
 }
