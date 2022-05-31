@@ -70,6 +70,12 @@ public class WorkoutBasePage extends BasePage {
             $("#PaceType").selectOption(run.getPaceType());
         }
     }
+    public void editWorkoutForCross( Workout run) {
+            $("#DistanceNoInt").sendKeys(run.getDistance());
+            $("#DistTypeNoInt").selectOption(run.getDistType());
+            $("#DurationNoInt").sendKeys(run.getDuration());
+            $("#PaceTypeNoInt").selectOption(run.getPaceType());
+        }
 
     public void editPower(Workout run) { //для Transition / Bike /Walk
         $("#PowAvg").sendKeys(run.getPowAvg());

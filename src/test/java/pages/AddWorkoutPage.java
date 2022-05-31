@@ -10,10 +10,21 @@ import static org.testng.Assert.assertTrue;
 
 public class AddWorkoutPage extends WorkoutBasePage{
 
-    public void createRunOrCrossTraining(String type, Workout workout) {
+    public void createRun(String type, Workout workout) {
         editBaseFields(workout);
         if (workout.getShowDistance().equals("yes")) editPlanedDistance(workout);
         editWorkout(type, workout);
+        if (workout.getMarkAsRace().equals("yes")) editRace(workout);
+        editFeltAndEffort(workout);
+        editHR(workout);
+        editKCal(workout);
+        clickSaveButton();
+    }
+
+    public void createCrossTraining( Workout workout) {
+        editBaseFields(workout);
+        if (workout.getShowDistance().equals("yes")) editPlanedDistance(workout);
+        editWorkoutForCross(workout);
         if (workout.getMarkAsRace().equals("yes")) editRace(workout);
         editFeltAndEffort(workout);
         editHR(workout);
@@ -26,7 +37,7 @@ public class AddWorkoutPage extends WorkoutBasePage{
         if (workout.getShowDistance().equals("yes")) editPlanedDistance(workout);
         editWorkout(type, workout);
         editPower(workout);
-        if (workout.getMarkAsRace().equals("yes") && $(By.xpath("//a[@data-code='trans']/i[@class]")).getAttribute("class").equals("icon-chevron-left"))
+        if (workout.getMarkAsRace().equals("yes") && $(By.xpath("//a[@data-code='trans']/i[@class]")).getAttribute("class").equals("icon-chevron-left")) editRace(workout);
         editFeltAndEffort(workout);
         editElevation(workout);
         editHR(workout);
@@ -64,7 +75,5 @@ public class AddWorkoutPage extends WorkoutBasePage{
         } else { System.out.println($("div.alert").getText()); // потом удалить
             assertTrue($("div.alert").getText().contains(error));
         }
-
     }
-
 }
