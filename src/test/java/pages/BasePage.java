@@ -11,6 +11,6 @@ public class BasePage {
         Configuration.baseUrl = "https://log.finalsurge.com/";
         Configuration.clickViaJs = true;
         Configuration.timeout = 10000;
-        Configuration.holdBrowserOpen = true;
+        // Configuration.holdBrowserOpen = true;
     }
 }

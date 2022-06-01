@@ -18,84 +18,88 @@ public class WorkoutBasePage extends BasePage {
         $(By.partialLinkText(name)).click();
     }
 
-    public void editBaseFields(Workout run) {
+    public void editBaseFields(Workout workout) {
         $("#WorkoutDate").clear();
-        $("#WorkoutDate").sendKeys(run.getData());
-        if ($(By.xpath("//a[@data-code='rest']/i[@class]")).getAttribute("class").equals("icon-chevron-left"))
-            $("#WorkoutTime").sendKeys(run.getTimeOfDay());
-        $("#Name").sendKeys(run.getName());
-        $("#Desc").sendKeys(run.getDescription());
+        $("#WorkoutDate").sendKeys(workout.getData());
+        if (iconLeft("rest")) $("#WorkoutTime").sendKeys(workout.getTimeOfDay());
+        $("#Name").sendKeys(workout.getName());
+        $("#Desc").sendKeys(workout.getDescription());
     }
 
-    public void editPlanedDistance(Workout run) {
-        $("#PlannedWorkout").click();
-        $("#PDistance").sendKeys(run.getPlannedDistance());
-        $("#PDistType").selectOption(run.getPlanedDistType());
-        $("#PDuration").sendKeys(run.getPlanedDuration());
+    public void editPlanedDistance(Workout workout) {
+        if (workout.getShowDistance().equals("yes")) {
+            $("#PlannedWorkout").click();
+            $("#PDistance").sendKeys(workout.getPlannedDistance());
+            $("#PDistType").selectOption(workout.getPlanedDistType());
+            $("#PDuration").sendKeys(workout.getPlanedDuration());
+        }
     }
 
-    public void editRace(Workout run) {
-        $("#IsRace").click();
-        $("#OverallPlace").sendKeys(run.getOverallPlace());
-        $("#AgeGroupPlace").sendKeys(run.getAgeGroupPlace());
+    public void editRace(Workout workout) {
+        if (workout.getMarkAsRace().equals("yes")) {
+            $("#IsRace").click();
+            $("#OverallPlace").sendKeys(workout.getOverallPlace());
+            $("#AgeGroupPlace").sendKeys(workout.getAgeGroupPlace());
+        }
     }
 
-    public void editFeltAndEffort(Workout run) {
-        $(By.xpath(String.format("//label[normalize-space()='%s']", run.getFeel()))).click();
-        $("#PerEffort").selectOption(run.getEffort());
+    public void editFeltAndEffort(Workout workout) {
+        $(By.xpath(String.format("//label[normalize-space()='%s']", workout.getFeel()))).click();
+        $("#PerEffort").selectOption(workout.getEffort());
     }
 
-    public void editHR(Workout run) {
-        $("#MinHR").sendKeys(run.getMinHR());
-        $("#AvgHR").sendKeys(run.getAvgHR());
-        $("#MaxHR").sendKeys(run.getMaxHR());
+    public void editHR(Workout workout) {
+        $("#MinHR").sendKeys(workout.getMinHR());
+        $("#AvgHR").sendKeys(workout.getAvgHR());
+        $("#MaxHR").sendKeys(workout.getMaxHR());
     }
 
-    public void editKCal(Workout run) {
-        $("#kCal").sendKeys(run.getKCal());
+    public void editKCal(Workout workout) {
+        $("#kCal").sendKeys(workout.getKCal());
     }
 
-    public void editWorkout(String type, Workout run) {
-        if (type.equals("advanced")) {
-            $("#tIntervals").click();
-            $("#SetReps1").sendKeys(run.getReps());
-            $("#SetDist1").sendKeys(run.getDistance());
-            $("#SetTime1").sendKeys(run.getDuration());
-            $("#SetDistType1").selectOption(run.getDistType());
+    public void editWorkout(String type, Workout workout) {
+        if (iconLeft("cross-trai")) {
+            if (type.equals("advanced")) {
+                $("#tIntervals").click();
+                $("#SetReps1").sendKeys(workout.getReps());
+                $("#SetDist1").sendKeys(workout.getDistance());
+                $("#SetTime1").sendKeys(workout.getDuration());
+                $("#SetDistType1").selectOption(workout.getDistType());
+            } else {
+                $("#tBasic").click();
+                $("#Distance").sendKeys(workout.getDistance());
+                $("#DistType").selectOption(workout.getDistType());
+                $("#Duration").sendKeys(workout.getDuration());
+                $("#PaceType").selectOption(workout.getPaceType());
+            }
         } else {
-            $("#tBasic").click();
-            $("#Distance").sendKeys(run.getDistance());
-            $("#DistType").selectOption(run.getDistType());
-            $("#Duration").sendKeys(run.getDuration());
-            $("#PaceType").selectOption(run.getPaceType());
+            $("#DistanceNoInt").sendKeys(workout.getDistance());
+            $("#DistTypeNoInt").selectOption(workout.getDistType());
+            $("#DurationNoInt").sendKeys(workout.getDuration());
+            $("#PaceTypeNoInt").selectOption(workout.getPaceType());
         }
     }
-    public void editWorkoutForCross( Workout run) {
-            $("#DistanceNoInt").sendKeys(run.getDistance());
-            $("#DistTypeNoInt").selectOption(run.getDistType());
-            $("#DurationNoInt").sendKeys(run.getDuration());
-            $("#PaceTypeNoInt").selectOption(run.getPaceType());
-        }
 
-    public void editPower(Workout run) { //для Transition / Bike /Walk
-        $("#PowAvg").sendKeys(run.getPowAvg());
-        $("#PowMax").sendKeys(run.getPowMax());
-        $("#CadAvg").sendKeys(run.getCadAvg());
-        $("#CadMax").sendKeys(run.getCadMax());
+    public void editPower(Workout workout) {
+        $("#PowAvg").sendKeys(workout.getPowAvg());
+        $("#PowMax").sendKeys(workout.getPowMax());
+        $("#CadAvg").sendKeys(workout.getCadAvg());
+        $("#CadMax").sendKeys(workout.getCadMax());
     }
 
-    public void editElevation(Workout run) {// для Bike /Walk
-        $("#EGain").sendKeys(run.getElGain());
-        $("#EGainDistType").selectOption(run.getElGainType());
-        $("#ELoss").sendKeys(run.getElLoss());
-        $("#ELossDistType").selectOption(run.getElLossType());
+    public void editElevation(Workout workout) {
+        $("#EGain").sendKeys(workout.getElGain());
+        $("#EGainDistType").selectOption(workout.getElGainType());
+        $("#ELoss").sendKeys(workout.getElLoss());
+        $("#ELossDistType").selectOption(workout.getElLossType());
     }
 
     public void clickSaveButton() {
         $("#saveButton").click();
     }
 
-    public void getErrorMessage() {
-
+    public boolean iconLeft(String name) {
+        return $(By.xpath(String.format("//a[@data-code='%s']/i[@class]", name))).getAttribute("class").equals("icon-chevron-left");
     }
 }

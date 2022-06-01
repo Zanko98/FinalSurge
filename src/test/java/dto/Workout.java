@@ -12,8 +12,8 @@ public class Workout {
             name,
             description,
             showDistance, plannedDistance, planedDistType, planedDuration,
-            distance, distType, duration,
-            reps, advDistance, advDistType, advDuration, paceType,
+            distance, distType, duration, paceType,
+            reps, advDistance, advDistType, advDuration,
             markAsRace, overallPlace, ageGroupPlace,
             feel,
             effort,
@@ -21,7 +21,4 @@ public class Workout {
             kCal,
             elGain, elGainType, elLoss, elLossType,
             powAvg, powMax, cadAvg, cadMax;
-
-    public Workout() {
-    }
 }
