@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -23,6 +24,7 @@ public class BaseTest {
         Configuration.baseUrl = "https://log.finalsurge.com/";
         Configuration.clickViaJs = true;
         Configuration.timeout = 10000;
+        Configuration.reportsFolder = "target";
         // Configuration.holdBrowserOpen = true;
 
         loginPage = new LoginPage();
@@ -32,6 +34,7 @@ public class BaseTest {
     }
 
     @AfterMethod(alwaysRun = true)
+    @Step("log out")
     public void logOut() {
         $(By.linkText("Logout")).click();
         $(By.linkText("Account Login")).click();
