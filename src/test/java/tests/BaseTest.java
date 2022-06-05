@@ -20,7 +20,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        Configuration.browser = "edge";
+        Configuration.browser = "chrome";
         Configuration.baseUrl = "https://log.finalsurge.com/";
         Configuration.clickViaJs = true;
         Configuration.timeout = 10000;
