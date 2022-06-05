@@ -16,8 +16,10 @@
         <aspectj.version>1.9.6</aspectj.version>
         <slf4j.version>1.7.21</slf4j.version>
         <faker.version>1.0.2</faker.version>
+        <allureSelenide.version>2.18.1</allureSelenide.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <suiteXmlFile>src/test/resources/differentBrowsers.xml</suiteXmlFile>
     </properties>
 
     <build>
@@ -27,6 +29,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar -Xmx256m
                     </argLine>
@@ -46,6 +51,13 @@
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>${allureSelenide.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
@@ -91,5 +103,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>
