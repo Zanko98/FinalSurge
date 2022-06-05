@@ -13,15 +13,14 @@ public class UserProfileTest extends BaseTest {
     @DataProvider(name = "edit UserProfile")
     public Object[][] inputForEditUserProfile() {
         return new Object[][]{
-                {"bla", "bla", "Male", "1/1/2000", "4", "kg", "Palau", "Airai", "bla", "la", ""},
-                {"!@#$%^&*()_+", "bla", "Male", "0", "4", "kg", "Palau", "Airai", "bla", "la", "Please enter a valid Birthday."},
-                {"bla", "!@#$%^&*()_+", "Male", "", "!@#$%^&*()_+", "kg", "Palau", "Airai", "bla", "la", "Please enter a valid Weight."},
-                {"", "bla", "Female", "1/1/2000", "4", "kg", "Palau", "Airai", "bla", randomString(50), "Please enter a value for First Name."},
-                {"bla", "", "Male", "1/1/2000", "800", "kg", "Palau", "Airai", "!@#$%^&*()_+", "la", "Please enter a value for Last Name."},
-                {"bla", "bla", "Male", "1/1/2000", "0", "kg", "Palau", "Airai", "", "!@#$%^&*()_+", "Weight cannot be less than 1.00."},
-                {"bla", "bla", "Male", "1/1/2000", "801", "kg", "Palau", "Airai", "bla", "", "Weight cannot be greater than 800.00."},
-                {"bla", "bla", "Male", "1/1/2000", "4", "kg", "Palau", "Airai", "bla", randomString(51), "The Zip/Postal Code cannot be more than 50 characters."},
-                {"bla", "bla", "Male", "1/1/2000", "4", "kg", "Palau", "Airai", randomString(201), "", "*The City cannot be more than 200 characters."}
+                {"bla", "bla", "Male", "1/1/2000", "4", "kg", "Palau", "Airai", "bla", "la", ""},//                {"!@#$%^&*()_+", "bla", "Male", "0", "4", "kg", "Palau", "Airai", "bla", "la", "Please enter a valid Birthday."},
+//                {"bla", "!@#$%^&*()_+", "Male", "", "!@#$%^&*()_+", "kg", "Palau", "Airai", "bla", "la", "Please enter a valid Weight."},
+//                {"", "bla", "Female", "1/1/2000", "4", "kg", "Palau", "Airai", "bla", randomString(50), "Please enter a value for First Name."},
+//                {"bla", "", "Male", "1/1/2000", "800", "kg", "Palau", "Airai", "!@#$%^&*()_+", "la", "Please enter a value for Last Name."},
+//                {"bla", "bla", "Male", "1/1/2000", "0", "kg", "Palau", "Airai", "", "!@#$%^&*()_+", "Weight cannot be less than 1.00."},
+//                {"bla", "bla", "Male", "1/1/2000", "801", "kg", "Palau", "Airai", "bla", "", "Weight cannot be greater than 800.00."},
+//                {"bla", "bla", "Male", "1/1/2000", "4", "kg", "Palau", "Airai", "bla", randomString(51), "The Zip/Postal Code cannot be more than 50 characters."},
+//                {"bla", "bla", "Male", "1/1/2000", "4", "kg", "Palau", "Airai", randomString(201), "", "*The City cannot be more than 200 characters."}
         };
     }
 
@@ -48,18 +47,18 @@ public class UserProfileTest extends BaseTest {
     @DataProvider(name = "edit UserSettings")
     public Object[][] inputForEditUserSettings() {
         return new Object[][]{
-                {"Running", "English", "(GMT-11:00) Samoa", "Imperial", "12 hour", "DD/MM/YYYY", "Monday", "Daily", "1:00 AM", "Never", "", "", "Fixed Layout", "Yes", "Turn Off",
-                        ""},
-                {"Select...", "Deutsch", "(GMT-11:00) Samoa", "Metric", "24 hour", "MM/DD/YYYY", "Sunday", "Daily", "12:00 AM", "Daily", "0123456789", "Alltel", "Fixed Layout", "No", "Turn On",
-                        "*Please enter a value for Primary Sport."},
-                {"Cycling", "English", "Select...", "Metric", "24 hour", "MM/DD/YYYY", "Sunday", "Never", "12:00 AM", "Never", "0123456789", "Alltel", "Fluid Layout (stretches entire with of your screen)", "No", "Turn On",
-                        "Please enter a value for Time Zone."},
-                {"Running", "English", "(GMT-11:00) Samoa", "Metric", "24 hour", "YYYY/MM/DD", "Sunday", "Daily", "1:00 AM", "Daily", "", "Alltel", "Fixed Layout", "No", "Turn On",
-                        "*If you are choosing to have your upcoming workouts text messaged to you, you must enter a Cell Phone Number."},
-                {"Skiing", "English", "(GMT-11:00) Samoa", "Metric", "24 hour", "YYYY/MM/DD", "Sunday", "Daily", "12:00 AM", "Daily", "123456789", "Alltel", "Fixed Layout", "No", "Turn On",
-                        "*The Cell Phone Number cannot be less than 10 characters."},
-                {"Running", "English", "(GMT-11:00) Samoa", "Metric", "24 hour", "MM/DD/YYYY", "Sunday", "Daily", "1:00 AM", "Daily", "0123456789", "Select...", "Fixed Layout", "No", "Turn On",
-                        "*If you are choosing to have your upcoming workouts text messaged to you, you must select a Cell Phone Carrier."},
+//                {"Running", "English", "(GMT-11:00) Samoa", "Imperial", "12 hour", "DD/MM/YYYY", "Monday", "Daily", "1:00 AM", "Never", "", "", "Fixed Layout", "Yes", "Turn Off",
+//                        ""},
+//                {"Select...", "Deutsch", "(GMT-11:00) Samoa", "Metric", "24 hour", "MM/DD/YYYY", "Sunday", "Daily", "12:00 AM", "Daily", "0123456789", "Alltel", "Fixed Layout", "No", "Turn On",
+//                        "*Please enter a value for Primary Sport."},
+//                {"Cycling", "English", "Select...", "Metric", "24 hour", "MM/DD/YYYY", "Sunday", "Never", "12:00 AM", "Never", "0123456789", "Alltel", "Fluid Layout (stretches entire with of your screen)", "No", "Turn On",
+//                        "Please enter a value for Time Zone."},
+//                {"Running", "English", "(GMT-11:00) Samoa", "Metric", "24 hour", "YYYY/MM/DD", "Sunday", "Daily", "1:00 AM", "Daily", "", "Alltel", "Fixed Layout", "No", "Turn On",
+//                        "*If you are choosing to have your upcoming workouts text messaged to you, you must enter a Cell Phone Number."},
+//                {"Skiing", "English", "(GMT-11:00) Samoa", "Metric", "24 hour", "YYYY/MM/DD", "Sunday", "Daily", "12:00 AM", "Daily", "123456789", "Alltel", "Fixed Layout", "No", "Turn On",
+//                        "*The Cell Phone Number cannot be less than 10 characters."},
+//                {"Running", "English", "(GMT-11:00) Samoa", "Metric", "24 hour", "MM/DD/YYYY", "Sunday", "Daily", "1:00 AM", "Daily", "0123456789", "Select...", "Fixed Layout", "No", "Turn On",
+//                        "*If you are choosing to have your upcoming workouts text messaged to you, you must select a Cell Phone Carrier."},
                 {"Surfing", "English", "(GMT-11:00) Samoa", "Metric", "12 hour", "DD/MM/YYYY", "Monday", "Daily", "1:00 AM", "Daily", "012345678911", "Alltel", "Fixed Layout", "No", "Turn On",
                         "*The Cell Phone Number cannot be more than 11 characters."},
         };

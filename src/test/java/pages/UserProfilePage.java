@@ -40,12 +40,12 @@ public class UserProfilePage extends BasePage {
 
     @Step("click on the save button")
     public void clickSaveButton() {
-        $("[name='btnSubmit']").click();
+        $("[name='btnSubmit']").submit();
     }
 
     @Step("click on the save button")
     public void clickSaveChangesButton() {
-        $("[name='btnSubmitSettings']").click();
+        $("[name='btnSubmitSettings']").submit();
     }
 
     public String getParameter(String nameParameter) {
