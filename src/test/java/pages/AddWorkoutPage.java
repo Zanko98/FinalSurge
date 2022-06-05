@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import dto.Workout;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -10,6 +11,7 @@ import static org.testng.Assert.assertTrue;
 
 public class AddWorkoutPage extends WorkoutBasePage {
 
+    @Step("adding workouts")
     public void createRunOrSwimOrCross(String type, Workout workout) {
         editBaseFields(workout);
         editPlanedDistance(workout);
@@ -21,6 +23,7 @@ public class AddWorkoutPage extends WorkoutBasePage {
         clickSaveButton();
     }
 
+    @Step("adding workouts")
     public void createBikeOrWalkOrTransition(String type, Workout workout) {
         editBaseFields(workout);
         editPlanedDistance(workout);
@@ -34,6 +37,7 @@ public class AddWorkoutPage extends WorkoutBasePage {
         clickSaveButton();
     }
 
+    @Step("adding workouts")
     public void createRestDayOrRecoveryOrStrengthOrOther(Workout workout) {
         editBaseFields(workout);
         if (!iconLeft("strength-t")) {
@@ -43,6 +47,7 @@ public class AddWorkoutPage extends WorkoutBasePage {
         clickSaveButton();
     }
 
+    @Step("Reconciliation of errors {error} or the name {name} of a saved workout")
     public void assertNameOrErrorWorkout(String typeWorkout, String name, String error) {
         if (error.isEmpty()) {
             $(By.xpath("//h4[text()='Workout Details']")).shouldBe(Condition.visible);
