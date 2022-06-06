@@ -42,7 +42,7 @@ public class UserProfilePage extends BasePage {
         $("#Zip").sendKeys(zipCode);
     }
 
-    @Step(value = "click on the save button")
+    @Step("click on the save button")
     public void clickSaveButton() {
         log.info("click on the save button");
         $(By.xpath("//*[contains(@name,'btnSubmit')]")).submit();
