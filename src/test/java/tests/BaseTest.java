@@ -5,12 +5,12 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.*;
-
-import static com.codeborne.selenide.Selenide.$;
+import pages.AddWorkoutPage;
+import pages.LoginPage;
+import pages.UserProfilePage;
+import pages.WorkoutBasePage;
 
 public class BaseTest {
     public final String
@@ -27,7 +27,7 @@ public class BaseTest {
         Configuration.baseUrl = "https://log.finalsurge.com/";
         Configuration.clickViaJs = true;
         Configuration.timeout = 10000;
-        if(System.getProperty("headless","true").equals("true"))
+        if (System.getProperty("headless", "true").equals("true"))
             Configuration.headless = true;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true));
 
