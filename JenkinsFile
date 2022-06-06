@@ -15,7 +15,7 @@ pipeline {
             steps {
 
                 // Get some code from a GitHub repository
-                git branch: "${params.BRANCH}", url: 'https://github.com/borodichtimofei/FinalSurge.git'
+                git branch: "${params.BRANCH}", url: 'https://github.com/Zanko98/FinalSurge.git'
 
                 // Run Maven on a Unix agent.
                 sh "mvn clean test -DsuiteXmlFile=src/test/resources/differentBrowsers.xml"
