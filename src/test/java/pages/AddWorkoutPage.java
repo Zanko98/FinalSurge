@@ -51,10 +51,10 @@ public class AddWorkoutPage extends WorkoutBasePage {
     public void assertNameOrErrorWorkout(String typeWorkout, String name, String error) {
         if (error.isEmpty()) {
             $(By.xpath("//h4[text()='Workout Details']")).shouldBe(Condition.visible);
-            assertEquals($(".activityTypeName").getText(), typeWorkout);
-            assertEquals($("div[style~='clear:']").getText(), name);
+            assertEquals($(".activityTypeName").getText(), typeWorkout, "The activity type does not match");
+            assertEquals($("div[style~='clear:']").getText(), name, "The training name does not match");
         } else {
-            assertTrue($("div.alert").getText().contains(error));
+            assertTrue($("div.alert").getText().contains(error), "Incorrect displayed error");
         }
     }
 }
