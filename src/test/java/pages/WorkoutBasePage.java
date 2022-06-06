@@ -24,7 +24,7 @@ public class WorkoutBasePage extends BasePage {
         $(By.partialLinkText(name)).click();
     }
 
-    @Step("correction of the fields: data - {workout.getData()}, time - {}, Name, Description")
+    @Step("correction of the fields: data, time, Name, Description")
     public void editBaseFields(Workout workout) {
         $("#WorkoutDate").clear();
         log.info("send a WorkoutDate: {}, Name: {}, Desc: {}", workout.getData(), workout.getName(), workout.getDescription());
