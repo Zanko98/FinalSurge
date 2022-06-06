@@ -41,7 +41,7 @@ public class WorkoutBasePage extends BasePage {
     public void editPlanedDistance(Workout workout) {
         if (workout.getShowDistance().equals("yes")) {
             log.info("inserting PDistance: {}, PDuration: {} and select PDistance: {} ",
-                    workout.getPlannedDistance(), workout.getPlanedDuration(),workout.getPlanedDistType());
+                    workout.getPlannedDistance(), workout.getPlanedDuration(), workout.getPlanedDistType());
             $("#PlannedWorkout").click();
             $("#PDistance").sendKeys(workout.getPlannedDistance());
             $("#PDistType").selectOption(workout.getPlanedDistType());
