@@ -30,6 +30,9 @@ pipeline {
                 success {
                     junit '**/target/surefire-reports/TEST-*.xml'
                     allure includeProperties: false, jdk: '', reportBuildPolicy: 'ALWAYS', results: [[path: 'target/allure-results']]
+                    properties([parameters([
+                        string(defaultValue: '!QAZ1qaz', description: 'change the password if necessary', name: 'PASSWORD'), 
+                        string(defaultValue: 'qa@mailinator.com', description: 'change the email if necessary', name: 'EMAIL')])])
                 }
             }
         }
