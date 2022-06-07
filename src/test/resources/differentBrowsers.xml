@@ -5,18 +5,18 @@
         <listener class-name="tests.AnnotationTransformer"/>
         <listener class-name="tests.TestListener"/>
     </listeners>
-    <test name="Chrome">-->
-<!--        <parameter name="browser" value="chrome"/>-->
+<test name="Chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+<!--            <class name="tests.AddWorkoutTest"/>-->
+            <class name="tests.UserProfileTest"/>
+        </classes>
+    </test>
+<!--    <test name="Firefox">-->
+<!--        <parameter name="browser" value="firefox"/>-->
 <!--        <classes>-->
 <!--            <class name="tests.AddWorkoutTest"/>-->
 <!--            <class name="tests.UserProfileTest"/>-->
 <!--        </classes>-->
-<!--    </test>
-    <test name="Firefox">
-        <parameter name="browser" value="firefox"/>
-        <classes>
-            <class name="tests.AddWorkoutTest"/>
-<!--            <class name="tests.UserProfileTest"/>-->
-        </classes>
-    </test>
+<!--    </test>-->
 </suite>
