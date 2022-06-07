@@ -3,8 +3,7 @@ pipeline {
 
     parameters {
         gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
-        parameters([string(defaultValue: '!QAZ1qaz', description: 'change the password if necessary', name: 'PASSWORD'), string(defaultValue: 'qa@mailinator.com', description: 'change the email if necessary', name: 'EMAIL')])])
-                
+        string(defaultValue: '!QAZ1qaz', description: 'change the password if necessary', name: 'PASSWORD'), string(defaultValue: 'qa@mailinator.com', description: 'change the email if necessary', name: 'EMAIL')            
     }
 
     tools {
