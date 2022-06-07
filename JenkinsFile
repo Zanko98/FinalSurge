@@ -18,13 +18,13 @@ pipeline {
                 git branch: "${params.BRANCH}", url: 'https://github.com/Zanko98/FinalSurge.git'
 
                 // Run Maven on a Unix agent.
-                sh "mvn clean test -DsuiteXmlFile=src/test/resources/differentBrowsers.xml -Dpassword="${params.PASSWORD}" -Demail="${params.EMAIL}""
+                sh "mvn clean test -Dtest=UserProfileTest#editUserSettings test -Dpassword="${params.PASSWORD}" -Demail="${params.EMAIL}""
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
                 
                 script {
-                    properties([parameters([string(defaultValue: '!QAZ1qaz', description: 'change the password if necessary', name: 'PASSWORD'), string(defaultValue: 'qa@mailinator.com', description: 'change the email if necessary', name: 'EMAIL')])])
+                    properties([parameters([string(defaultValue: 'QAZ1qaz', description: 'change the password if necessary', name: 'PASSWORD'), string(defaultValue: 'qa@mailinator.com', description: 'change the email if necessary', name: 'EMAIL')])])
                 }
             }
 
