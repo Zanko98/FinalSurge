@@ -16,7 +16,7 @@ import pages.WorkoutBasePage;
 
 public class BaseTest {
     public final String
-            EMAIL = System.getProperty("email", "qa@mailinator.com"),//System.getenv().getOrDefault("user", "qa@mailinator.com"),
+            EMAIL = System.getProperty("email", "qa@mailinator.com"),
             PASSWORD = System.getenv().getOrDefault("password", "!QAZ1qaz");
     LoginPage loginPage;
     UserProfilePage userProfilePage;
