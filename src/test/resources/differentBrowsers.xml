@@ -8,7 +8,7 @@
 <test name="Chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
-<!--            <class name="tests.AddWorkoutTest"/>-->
+            <class name="tests.AddWorkoutTest"/>
             <class name="tests.UserProfileTest"/>
         </classes>
     </test>
