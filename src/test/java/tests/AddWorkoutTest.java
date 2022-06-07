@@ -9,7 +9,7 @@ import static utils.RandomData.randomString;
 
 public class AddWorkoutTest extends BaseTest {
 
-  /*  @DataProvider(name = "Run and Swim and Cross")
+    @DataProvider(name = "Run and Swim and Cross")
     public Object[][] inputForCreateRunOrSwimOrCross() {
         return new Object[][]{
                 {"Run", "basic", randomDate(), "6:00 AM", "", "!@#$%^&*()_+", "yes", "10", "km", "0:01", "min/mi", "", "0", "km", "1:01", "yes", "", "99999", "Good", "2 (Light)", "300", "0", "", "1", ""},
@@ -73,7 +73,7 @@ public class AddWorkoutTest extends BaseTest {
         addWorkoutPage.assertNameOrErrorWorkout(typeWorkout, name, error);
     }
 
-*/
+
     @DataProvider(name = "RestDay and Recovery and Other and StrengthTraining")
     public Object[][] inputForCreateRestDayAndRecovery() {
         return new Object[][]{
@@ -105,7 +105,7 @@ public class AddWorkoutTest extends BaseTest {
                 .build());
         addWorkoutPage.assertNameOrErrorWorkout(typeWorkout, name, error);
     }
-/*
+
     @DataProvider(name = "Bik and Walk and Transition")
     public Object[][] inputForCreateBikeOrWalkOrTransition() {
         return new Object[][]{
@@ -177,5 +177,5 @@ public class AddWorkoutTest extends BaseTest {
                 .kCal(kCal)
                 .build());
         addWorkoutPage.assertNameOrErrorWorkout(typeWorkout, name, error);
-    }*/
+    }
 }
