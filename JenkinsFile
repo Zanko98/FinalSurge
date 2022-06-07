@@ -18,7 +18,7 @@ pipeline {
                 git branch: "${params.BRANCH}", url: 'https://github.com/Zanko98/FinalSurge.git'
 
                 // Run Maven on a Unix agent.
-                sh "mvn clean test -Dtest=UserProfileTest#editUserSettings test -Dpassword=${params.PASSWORD} -Demail=${params.EMAIL}"
+                sh "mvn clean test -Dtest=UserProfileTest#editUserSettings test -Dpassword=${params.PASSWORD} -Demail=${params.EMAIL} -Dheadless=${params.HEADLESS}"
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
