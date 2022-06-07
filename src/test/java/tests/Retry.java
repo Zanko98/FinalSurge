@@ -7,7 +7,7 @@ import org.testng.ITestResult;
 @Log4j2
 public class Retry implements IRetryAnalyzer {
 
-    private static final int MAX_RETRY = 3;
+    private static final int MAX_RETRY = 1;
     private int attempt = 1;
 
     @Override
@@ -16,7 +16,7 @@ public class Retry implements IRetryAnalyzer {
             if (attempt < MAX_RETRY) {
                 attempt++;
                 iTestResult.setStatus(ITestResult.FAILURE);
-                log.debug("Test failed: {} Retries left {}", iTestResult.getName(), MAX_RETRY - attempt);
+                log.info("Test failed: {} Retries left {}", iTestResult.getName(), MAX_RETRY - attempt);
                 return true;
             } else {
                 iTestResult.setStatus(ITestResult.FAILURE);

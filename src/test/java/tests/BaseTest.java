@@ -7,6 +7,8 @@ import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import pages.AddWorkoutPage;
 import pages.LoginPage;
 import pages.UserProfilePage;
@@ -14,16 +16,17 @@ import pages.WorkoutBasePage;
 
 public class BaseTest {
     public final String
-            EMAIL = "qa@mailinator.com",
-            PASSWORD = "!QAZ1qaz";
+            EMAIL = System.getProperty("email", "qa@mailinator.com"),//System.getenv().getOrDefault("user", "qa@mailinator.com"),
+            PASSWORD = System.getenv().getOrDefault("password", "!QAZ1qaz");
     LoginPage loginPage;
     UserProfilePage userProfilePage;
     WorkoutBasePage workoutBasePagePage;
     AddWorkoutPage addWorkoutPage;
 
+    @Parameters({"browser"})
     @BeforeMethod
-    public void setUp() {
-        Configuration.browser = "chrome";
+    public void setUp(@Optional("firefox")String browser) {
+        Configuration.browser =  browser;
         Configuration.baseUrl = "https://log.finalsurge.com/";
         Configuration.clickViaJs = true;
         Configuration.timeout = 10000;
@@ -38,8 +41,8 @@ public class BaseTest {
     }
 
     @AfterMethod(alwaysRun = true)
-    @Step("log out")
-    public void logOut() {
+    @Step("close browser")
+    public void close() {
         Selenide.closeWebDriver();
     }
 }
