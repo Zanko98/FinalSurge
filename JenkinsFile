@@ -23,8 +23,9 @@ pipeline {
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
                 
-                properties([parameters([string(defaultValue: '!QAZ1qaz', description: 'change the password if necessary', name: 'PASSWORD'), string(defaultValue: 'qa@mailinator.com', description: 'change the email if necessary', name: 'EMAIL')])])
-                
+                script {
+                    properties([parameters([string(defaultValue: '!QAZ1qaz', description: 'change the password if necessary', name: 'PASSWORD'), string(defaultValue: 'qa@mailinator.com', description: 'change the email if necessary', name: 'EMAIL')])])
+                }
             }
 
             post {
