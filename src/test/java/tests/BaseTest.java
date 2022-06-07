@@ -25,7 +25,7 @@ public class BaseTest {
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void setUp(@Optional("firefox")String browser) {
+    public void setUp(@Optional("chrome")String browser) {
         Configuration.browser =  browser;
         Configuration.baseUrl = "https://log.finalsurge.com/";
         Configuration.clickViaJs = true;
